@@ -3,7 +3,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch.nn.functional as F
 
 # ── Config ────────────────────────────────────────────────────────
-MODEL_PATH  = "saved_model"
+MODEL_PATH = "Hifsa65/roman-urdu-sentiment-distilbert"
 MAX_LEN     = 128
 ID_TO_LABEL = {0: "Positive", 1: "Negative", 2: "Neutral"}
 EMOJI       = {"Positive": "✅", "Negative": "❌", "Neutral": "😐"}
