@@ -84,6 +84,8 @@ streamlit run app.py
 
 ## Live Demo
 
+ **Live App:** [huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
+
 Type any Pakistani brand or topic into the chatbot:
 
 ```
