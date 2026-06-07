@@ -179,7 +179,6 @@ Preprocessing steps applied:
 - Retrain with XLM-RoBERTa for better multilingual support
 - Add class weights to handle Neutral class dominance
 - Expand dataset with more diverse Roman Urdu sources
-- Deploy on Hugging Face Spaces for public access
 - Add brand comparison feature (side-by-side analysis)
 
 ---
