@@ -26,8 +26,6 @@ actually write online — is almost entirely unsupported. This project fills tha
 | v1 | 19,626 | 63% | Baseline, imbalanced dataset |
 | v2 | 24,989 | 73% | Augmented + balanced, +10% accuracy |
 
-Current live demo runs on **v1**. v2 update in progress.
-
 ---
 
 ## Project Structure
@@ -100,6 +98,7 @@ streamlit run app.py
 ## Live Demo
 
 **Live App:** [huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
+> Currently running v1. v2 update in progress.
 
 Type any Pakistani brand or topic into the chatbot:
 
