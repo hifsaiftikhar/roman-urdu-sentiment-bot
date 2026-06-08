@@ -1,13 +1,3 @@
-The README is solid but needs two things:
-
-1. **Model versions section** — v1 and v2 are not mentioned anywhere
-2. **Future Work is outdated** — you already did half of it (class weights, dataset expansion)
-
-Here's the rewritten version:
-
----
-
-```markdown
 # Roman Urdu Sentiment Bot
 
 A deep learning chatbot that analyzes real-time YouTube comments in Roman Urdu
