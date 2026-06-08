@@ -217,6 +217,3 @@ Preprocessing steps applied:
 
 **Hifsa Iftikhar**  
 GitHub: [@hifsaiftikhar](https://github.com/hifsaiftikhar)
-- Updated performance section to show v2 numbers + per class table
-- Updated dataset size to 24,989
-- Removed future work items you already completed
