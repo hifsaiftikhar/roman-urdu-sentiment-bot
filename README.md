@@ -1,3 +1,13 @@
+The README is solid but needs two things:
+
+1. **Model versions section** — v1 and v2 are not mentioned anywhere
+2. **Future Work is outdated** — you already did half of it (class weights, dataset expansion)
+
+Here's the rewritten version:
+
+---
+
+```markdown
 # Roman Urdu Sentiment Bot
 
 A deep learning chatbot that analyzes real-time YouTube comments in Roman Urdu
@@ -19,6 +29,18 @@ actually write online — is almost entirely unsupported. This project fills tha
 
 ---
 
+## Model Versions
+
+| Version | Training Samples | Test Accuracy | Notes |
+|---|---|---|---|
+| v1 | 19,626 | 63% | Baseline, imbalanced dataset |
+| v2 | 24,989 | 73% | Augmented + balanced, +10% accuracy |
+
+Current live demo runs on **v2**.  
+See [`models/v1/README.md`](models/v1/README.md) and [`models/v2/README.md`](models/v2/README.md) for full details.
+
+---
+
 ## Project Structure
 
 ```
@@ -29,6 +51,10 @@ roman-urdu-sentiment-bot/
 ├── predictor.py            ← Model loading and sentiment inference
 ├── youtube_fetcher.py      ← YouTube comment scraping pipeline
 ├── train_model.py          ← Model training and evaluation code
+├── augment_dataset.py      ← Dataset augmentation script
+├── models/
+│   ├── v1/README.md        ← v1 training details and results
+│   └── v2/README.md        ← v2 training details and results
 ├── .gitignore
 └── README.md
 ```
@@ -84,7 +110,7 @@ streamlit run app.py
 
 ## Live Demo
 
- **Live App:** [huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
+**Live App:** [huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
 
 Type any Pakistani brand or topic into the chatbot:
 
@@ -103,16 +129,24 @@ show positive     show negative     show neutral     help
 
 ## Model Performance
 
-| | Score |
+Current model (v2):
+
+| Metric | Score |
 |---|---|
 | Model | DistilBERT multilingual |
-| Training samples | 15,700 |
-| Validation samples | 1,963 |
-| Test samples | 1,963 |
-| Validation Accuracy | 65% |
-| Test Accuracy | 63% |
+| Training Samples | 19,991 |
+| Validation Accuracy | 74.07% |
+| Test Accuracy | 73% |
 
-### Why 63%?
+### Per Class Performance
+
+| Class | Precision | Recall | F1 |
+|---|---|---|---|
+| Positive | 0.75 | 0.77 | 0.76 |
+| Negative | 0.75 | 0.73 | 0.74 |
+| Neutral | 0.69 | 0.69 | 0.69 |
+
+### Why not higher?
 
 Roman Urdu NLP has unique challenges that limit achievable accuracy:
 
@@ -121,8 +155,8 @@ Roman Urdu NLP has unique challenges that limit achievable accuracy:
 - No dedicated pretrained model — DistilBERT was not trained on Roman Urdu
 - Label noise — some samples in the dataset are genuinely ambiguous
 
-These are documented limitations, not bugs. 63% on Roman Urdu is comparable to
-what other published work achieves on this language variety.
+These are documented limitations, not bugs. 73% on Roman Urdu is strong given
+the lack of dedicated pretrained models for this language variety.
 
 ---
 
@@ -163,27 +197,36 @@ what other published work achieves on this language variety.
 ## Dataset
 
 - Name: Roman Urdu Sentiment Dataset
-- Size: 20,229 samples (after cleaning: 19,626)
-- Classes: Positive, Negative, Neutral
+- Size: 24,989 samples (augmented from original 19,626)
+- Classes: Positive, Negative, Neutral (~8,500 each)
 - Source: Pakistani social media text
 
 Preprocessing steps applied:
 - Fixed typo label ("Neative" → "Negative")
 - Removed null values and duplicates
 - Applied stratified 80/10/10 train/val/test split
+- Augmented and balanced classes to address class imbalance
 
 ---
 
 ## Future Work
 
-- Retrain with XLM-RoBERTa for better multilingual support
-- Add class weights to handle Neutral class dominance
 - Expand dataset with more diverse Roman Urdu sources
 - Add brand comparison feature (side-by-side analysis)
+
+## Experiments
+
+| Approach | Result |
+|---|---|
+| XLM-RoBERTa fine-tuning | Underperformed DistilBERT on this dataset |
+| Dataset augmentation + balancing | +10% accuracy over baseline (v1 → v2) |
 
 ---
 
 ## Author
 
-**Hifsa Iftikhar**
+**Hifsa Iftikhar**  
 GitHub: [@hifsaiftikhar](https://github.com/hifsaiftikhar)
+- Updated performance section to show v2 numbers + per class table
+- Updated dataset size to 24,989
+- Removed future work items you already completed
