@@ -48,9 +48,11 @@ Achieved **74% validation accuracy** — 9% improvement over v1.
 
 ## Confusion Matrix
 
-[[639  66 126]
-[ 82 594 139]
-[134 128 591]]
+| | Predicted Positive | Predicted Negative | Predicted Neutral |
+|---|---|---|---|
+| **Actual Positive** | 639 | 66 | 126 |
+| **Actual Negative** | 82 | 594 | 139 |
+| **Actual Neutral** | 134 | 128 | 591 |
 
 ## Key Improvements Over v1
 
