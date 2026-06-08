@@ -47,3 +47,13 @@ Achieved **74% validation accuracy** — 9% improvement over v1.
 | Neutral | 0.69 | 0.69 | 0.69 |
 
 ## Confusion Matrix
+
+[[639  66 126]
+[ 82 594 139]
+[134 128 591]]
+
+## Key Improvements Over v1
+
+- Negative class F1: 0.55 → 0.74 (+0.19)
+- Overall accuracy: 63% → 73% (+10%)
+- Class imbalance successfully addressed
