@@ -98,7 +98,7 @@ streamlit run app.py
 ## Live Demo
 
 **Live App:** [huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
-> Currently running v1. v2 update in progress.
+> Currently running v2 (74% accuracy).
 
 Type any Pakistani brand or topic into the chatbot:
 
