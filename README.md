@@ -1,5 +1,9 @@
 # Roman Urdu Sentiment Bot
 
+[![Live Demo](https://img.shields.io/badge/🤗_HuggingFace-Live_Demo-yellow)](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
+[![Model v2](https://img.shields.io/badge/Model-v2_74%25_accuracy-green)](https://huggingface.co/Hifsa65/roman-urdu-sentiment-v2)
+[![GitHub](https://img.shields.io/badge/GitHub-hifsaiftikhar-black)](https://github.com/hifsaiftikhar)
+
 A deep learning chatbot that analyzes real-time YouTube comments in Roman Urdu
 to understand public sentiment about Pakistani brands and topics.
 
