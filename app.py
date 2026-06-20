@@ -31,14 +31,14 @@ st.markdown("""
 }
 
 .stApp {
-    background: #0d0d0d;
-    color: #f0f0f0;
+    background: #f5f0eb;
+    color: #1a1a1a;
 }
 
 #MainMenu, footer, header { visibility: hidden; }
 .block-container {
-    padding: 0 2.5rem 4rem 2.5rem;
-    max-width: 1400px;
+    padding: 0 !important;
+    max-width: 100% !important;
 }
 
 /* ── NAV ── */
@@ -46,27 +46,27 @@ st.markdown("""
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #1e1e1e;
-    margin-bottom: 4rem;
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid #e0d9d0;
+    background: #f5f0eb;
 }
 .nav-logo {
     font-family: 'Space Mono', monospace;
     font-size: 0.85rem;
-    color: #f0f0f0;
+    color: #1a1a1a;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 .nav-tag {
     font-size: 0.72rem;
-    color: #444444;
+    color: #666;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 .nav-dot {
-    width: 8px;
-    height: 8px;
-    background: #c8f04a;
+    width: 7px;
+    height: 7px;
+    background: #2d7a4f;
     border-radius: 50%;
     display: inline-block;
     margin-right: 6px;
@@ -74,97 +74,207 @@ st.markdown("""
 }
 @keyframes pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    50% { opacity: 0.3; }
 }
 
 /* ── HERO ── */
-.hero {
-    margin-bottom: 4rem;
+.hero-wrap {
+    padding: 5rem 2.5rem 4rem 2.5rem;
+    background: #f5f0eb;
+    border-bottom: 1px solid #e0d9d0;
 }
 .hero-label {
     font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: #c8f04a;
+    font-size: 0.65rem;
+    color: #2d7a4f;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
 }
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 700;
-    color: #f0f0f0;
+    color: #1a1a1a;
     line-height: 1.05;
-    letter-spacing: -1.5px;
-    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+    margin-bottom: 1.4rem;
+    max-width: 700px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.25s forwards;
 }
 .hero-title span {
-    color: #c8f04a;
+    color: #2d7a4f;
+    border-bottom: 3px solid #2d7a4f;
+    padding-bottom: 2px;
 }
 .hero-desc {
-    font-size: 0.95rem;
-    color: #555555;
+    font-size: 1rem;
+    color: #666;
     max-width: 500px;
     line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.4s forwards;
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── SEARCH BAR ── */
-.search-section {
-    margin-bottom: 3rem;
+/* ── STATS BAR ── */
+.stats-bar {
+    display: flex;
+    background: #1a1a1a;
+    border-bottom: 1px solid #2a2a2a;
 }
+.stat-item {
+    flex: 1;
+    padding: 1.6rem 2rem;
+    border-right: 1px solid #2a2a2a;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+}
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stat-item:nth-child(4) { animation-delay: 0.4s; }
+.stat-item:last-child { border-right: none; }
+.stat-num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c8f04a;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+.stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+    overflow: hidden;
+    background: #eee8e0;
+    border-bottom: 1px solid #e0d9d0;
+    padding: 0.8rem 0;
+    white-space: nowrap;
+}
+.marquee-track {
+    display: inline-block;
+    animation: marquee 35s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 70px;
+    padding: 0.6rem 1.4rem;
+    margin: 0 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.marquee-item:hover {
+    border-color: #2d7a4f;
+    transform: translateY(-2px);
+}
+.marquee-item img {
+    max-height: 36px;
+    max-width: 110px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #444;
+    text-align: center;
+    line-height: 1.6;
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    border-top: 1px solid #e0d9d0;
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+}
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+    padding: 2.5rem 2.5rem 4rem 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #f5f0eb;
+}
+
+/* ── SEARCH ── */
 .search-label {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
-    color: #444444;
+    color: #1a1a1a;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 0.8rem;
+    margin-top: 2rem;
 }
 .stTextInput input {
-    background: #111111 !important;
-    border: 1px solid #222222 !important;
-    border-radius: 2px !important;
-    color: #f0f0f0 !important;
+    background: #fff !important;
+    border: 1.5px solid #888 !important;
+    border-radius: 4px !important;
+    color: #1a1a1a !important;
     font-size: 1rem !important;
     padding: 1rem 1.2rem !important;
     font-family: 'Space Grotesk', sans-serif !important;
     transition: border-color 0.2s !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
 }
 .stTextInput input:focus {
-    border-color: #c8f04a !important;
-    box-shadow: none !important;
+    border-color: #2d7a4f !important;
+    box-shadow: 0 0 0 2px rgba(45,122,79,0.15) !important;
 }
-.stTextInput input::placeholder { color: #333333 !important; }
+.stTextInput input::placeholder { color: #888 !important; }
 .stTextInput label { display: none !important; }
 
-/* ── ANALYZE BUTTON (form submit) ── */
+/* ── ANALYZE BUTTON ── */
 [data-testid="stFormSubmitButton"] button {
-    background: #c8f04a !important;
-    color: #0d0d0d !important;
+    background: #2d7a4f !important;
+    color: #fff !important;
     border: none !important;
-    border-radius: 2px !important;
-    font-weight: 700 !important;
-    font-size: 0.7rem !important;
-    padding: 0.55rem 1rem !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
+    padding: 0.6rem 1rem !important;
     width: 100% !important;
     letter-spacing: 1px !important;
     text-transform: uppercase !important;
     font-family: 'Space Grotesk', sans-serif !important;
-    transition: background 0.2s, transform 0.1s !important;
+    transition: background 0.2s !important;
     cursor: pointer !important;
 }
 [data-testid="stFormSubmitButton"] button:hover {
-    background: #d8ff5a !important;
-    transform: translateY(-1px) !important;
+    background: #235f3d !important;
 }
 
 /* ── BRAND TAG BUTTONS ── */
 [data-testid="stHorizontalBlock"] .stButton button {
-    background: transparent !important;
-    border: 1px solid #222222 !important;
-    color: #555555 !important;
+    background: #fff !important;
+    border: 1px solid #999 !important;
+    color: #444 !important;
     border-radius: 100px !important;
     font-size: 0.72rem !important;
-    padding: 0.15rem 0.5rem !important;
+    padding: 0.15rem 0.6rem !important;
     margin: 0 !important;
     font-family: 'Space Mono', monospace !important;
     font-weight: 400 !important;
@@ -176,14 +286,11 @@ st.markdown("""
     transition: all 0.2s !important;
 }
 [data-testid="stHorizontalBlock"] .stButton button:hover {
-    border-color: #c8f04a !important;
-    color: #c8f04a !important;
-    transform: none !important;
-    background: transparent !important;
+    border-color: #2d7a4f !important;
+    color: #2d7a4f !important;
+    background: #fff !important;
 }
-[data-testid="stHorizontalBlock"] {
-    gap: 0.2rem !important;
-}
+[data-testid="stHorizontalBlock"] { gap: 0.2rem !important; }
 
 /* ── RESULTS HEADER ── */
 .results-header {
@@ -192,18 +299,18 @@ st.markdown("""
     justify-content: space-between;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid #e0d9d0;
 }
 .results-keyword {
     font-size: 2rem;
     font-weight: 700;
-    color: #f0f0f0;
+    color: #1a1a1a;
     letter-spacing: -0.5px;
 }
 .results-meta {
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
-    color: #444444;
+    color: #666;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -213,12 +320,14 @@ st.markdown("""
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
-    background: #1a1a1a;
-    border: 1px solid #1a1a1a;
+    background: #e0d9d0;
+    border: 1px solid #e0d9d0;
     margin-bottom: 3rem;
+    border-radius: 6px;
+    overflow: hidden;
 }
 .metric-cell {
-    background: #0d0d0d;
+    background: #fff;
     padding: 2rem 1.5rem;
 }
 .metric-pct {
@@ -233,88 +342,84 @@ st.markdown("""
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #444444;
+    color: #666;
 }
-.metric-count {
-    font-size: 0.8rem;
-    color: #333333;
-    margin-top: 0.3rem;
-}
-.m-pos .metric-pct { color: #c8f04a; }
-.m-neg .metric-pct { color: #ff4d4d; }
-.m-neu .metric-pct { color: #666666; }
+.metric-count { font-size: 0.8rem; color: #888; margin-top: 0.3rem; }
+.m-pos .metric-pct { color: #2d7a4f; }
+.m-neg .metric-pct { color: #e05555; }
+.m-neu .metric-pct { color: #666; }
 
 /* ── SECTION HEADER ── */
 .s-header {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
-    color: #444444;
+    color: #666;
     text-transform: uppercase;
     letter-spacing: 3px;
     padding-bottom: 0.8rem;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid #e0d9d0;
     margin-bottom: 1.5rem;
 }
 
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
-    border-bottom: 1px solid #1a1a1a !important;
-    gap: 0 !important;
-    padding: 0 !important;
+    border-bottom: 1px solid #e0d9d0 !important;
+    gap: 0 !important; padding: 0 !important;
     margin-bottom: 1.5rem !important;
 }
 .stTabs [data-baseweb="tab"] {
     background: transparent !important;
-    color: #444444 !important;
+    color: #aaa !important;
     font-size: 0.72rem !important;
     font-weight: 500 !important;
     padding: 0.7rem 1.2rem !important;
     border-radius: 0 !important;
     letter-spacing: 1.5px !important;
     text-transform: uppercase !important;
-    border-bottom: 1px solid transparent !important;
+    border-bottom: 2px solid transparent !important;
     font-family: 'Space Mono', monospace !important;
 }
 .stTabs [aria-selected="true"] {
     background: transparent !important;
-    color: #c8f04a !important;
-    border-bottom: 1px solid #c8f04a !important;
+    color: #2d7a4f !important;
+    border-bottom: 2px solid #2d7a4f !important;
 }
 
 /* ── CHAT ── */
 .stChatMessage {
-    background: #111111 !important;
-    border: 1px solid #1e1e1e !important;
-    border-radius: 2px !important;
+    background: #fff !important;
+    border: 1px solid #e0d9d0 !important;
+    border-radius: 4px !important;
 }
 [data-testid="stChatMessageContent"] p {
-    color: #c0c0c0 !important;
+    color: #444 !important;
     font-size: 0.88rem !important;
     line-height: 1.7 !important;
 }
 [data-testid="stVerticalBlockBorderWrapper"] {
-    border: 1px solid #1a1a1a !important;
-    border-radius: 2px !important;
-    background: #0d0d0d !important;
+    border: 1px solid #e0d9d0 !important;
+    border-radius: 4px !important;
+    background: #fff !important;
 }
 
 /* ── COMMENT CARD ── */
 .c-card {
     padding: 1rem 1.2rem;
-    border-left: 2px solid #c8f04a;
-    background: #111111;
+    border-left: 3px solid #2d7a4f;
+    background: #fff;
     margin-bottom: 0.6rem;
     font-size: 0.85rem;
-    color: #aaaaaa;
+    color: #555;
     line-height: 1.6;
+    border-radius: 0 4px 4px 0;
 }
-.c-card.neg { border-left-color: #ff4d4d; }
-.c-card.neu { border-left-color: #333333; }
+.c-card.neg { border-left-color: #e05555; }
+.c-card.neu { border-left-color: #777; }
 .c-conf {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
-    color: #333333;
+    color: #888;
     margin-top: 0.4rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -326,21 +431,24 @@ st.markdown("""
     justify-content: space-between;
     align-items: center;
     padding: 0.7rem 0;
-    border-bottom: 1px solid #111111;
+    border-bottom: 1px solid #e0d9d0;
     font-size: 0.85rem;
 }
-.h-kw { color: #c0c0c0; }
-.h-dom { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #444444; }
+.h-kw { color: #333; }
+.h-dom { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #666; }
 
 /* ── EMPTY ── */
 .empty {
     padding: 5rem 2rem;
     text-align: center;
-    border: 1px dashed #1a1a1a;
+    border: 1px dashed #ddd;
+    border-radius: 6px;
+    margin-top: 2rem;
+    background: #fff;
 }
 .empty-title {
     font-size: 0.85rem;
-    color: #2a2a2a;
+    color: #555;
     font-family: 'Space Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -348,30 +456,30 @@ st.markdown("""
 
 /* ── SELECTBOX ── */
 .stSelectbox > div > div {
-    background: #111111 !important;
-    border: 1px solid #222222 !important;
-    color: #f0f0f0 !important;
-    border-radius: 2px !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    color: #1a1a1a !important;
+    border-radius: 4px !important;
     font-size: 0.85rem !important;
 }
 
 /* ── RADIO ── */
-.stRadio label { color: #555555 !important; font-size: 0.82rem !important; }
-.stRadio [data-testid="stMarkdownContainer"] p { color: #555555 !important; }
+.stRadio label { color: #888 !important; font-size: 0.82rem !important; }
+.stRadio [data-testid="stMarkdownContainer"] p { color: #888 !important; }
 
 /* ── DOWNLOAD ── */
 .stDownloadButton button {
     background: transparent !important;
-    border: 1px solid #222222 !important;
-    color: #555555 !important;
+    border: 1px solid #ddd !important;
+    color: #999 !important;
     font-size: 0.78rem !important;
     letter-spacing: 1px !important;
     text-transform: uppercase !important;
+    border-radius: 4px !important;
 }
 .stDownloadButton button:hover {
-    border-color: #c8f04a !important;
-    color: #c8f04a !important;
-    transform: none !important;
+    border-color: #2d7a4f !important;
+    color: #2d7a4f !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -389,26 +497,26 @@ for key, val in [
 
 # ── Chart helpers ─────────────────────────────────────────────────
 BG   = "rgba(0,0,0,0)"
-GRID = "rgba(255,255,255,0.04)"
+GRID = "rgba(0,0,0,0.05)"
 
 def pie_chart(summary):
     labels = ["Positive", "Negative", "Neutral"]
     values = [summary["counts"][l] for l in labels]
-    colors = ["#c8f04a", "#ff4d4d", "#333333"]
+    colors = ["#2d7a4f", "#e05555", "#cccccc"]
     fig = go.Figure(go.Pie(
         labels=labels, values=values, hole=0.7,
-        marker=dict(colors=colors, line=dict(color="#0d0d0d", width=3)),
+        marker=dict(colors=colors, line=dict(color="#f5f0eb", width=3)),
         textinfo="label+percent",
-        textfont=dict(size=11, color="#f0f0f0"),
+        textfont=dict(size=11, color="#333"),
         hovertemplate="<b>%{label}</b><br>%{value}<br>%{percent}<extra></extra>"
     ))
     fig.update_layout(
         paper_bgcolor=BG, plot_bgcolor=BG, showlegend=False,
         margin=dict(t=10, b=10, l=10, r=10), height=260,
         annotations=[dict(
-            text=f"<b style='font-size:22px'>{summary['total']}</b>",
+            text=f"<b>{summary['total']}</b>",
             x=0.5, y=0.5,
-            font=dict(size=22, color="#f0f0f0"),
+            font=dict(size=22, color="#1a1a1a"),
             showarrow=False
         )]
     )
@@ -417,22 +525,22 @@ def pie_chart(summary):
 def bar_chart(summary):
     cats   = ["Positive", "Negative", "Neutral"]
     values = [summary["percentages"][c] for c in cats]
-    colors = ["#c8f04a", "#ff4d4d", "#333333"]
+    colors = ["#2d7a4f", "#e05555", "#cccccc"]
     fig = go.Figure(go.Bar(
         x=cats, y=values,
         marker=dict(color=colors, line=dict(width=0)),
         text=[f"{v}%" for v in values],
         textposition="outside",
-        textfont=dict(color="#f0f0f0", size=12),
+        textfont=dict(color="#333", size=12),
         hovertemplate="<b>%{x}</b><br>%{y:.1f}%<extra></extra>"
     ))
     fig.update_layout(
         paper_bgcolor=BG, plot_bgcolor=BG,
         margin=dict(t=30, b=10, l=10, r=10), height=260,
         yaxis=dict(showgrid=True, gridcolor=GRID,
-                   tickfont=dict(color="#444444"), ticksuffix="%",
+                   tickfont=dict(color="#aaa"), ticksuffix="%",
                    range=[0, max(values) + 20]),
-        xaxis=dict(tickfont=dict(color="#888888", size=12)),
+        xaxis=dict(tickfont=dict(color="#888", size=12)),
         bargap=0.4
     )
     return fig
@@ -441,21 +549,17 @@ def conf_chart(results):
     confs = [r["confidence"] for r in results]
     fig = go.Figure(go.Histogram(
         x=confs, nbinsx=20,
-        marker=dict(color="#c8f04a", opacity=0.7,
-                    line=dict(color="#0d0d0d", width=1)),
+        marker=dict(color="#2d7a4f", opacity=0.7,
+                    line=dict(color="#f5f0eb", width=1)),
         hovertemplate="Confidence: %{x:.0f}%<br>Count: %{y}<extra></extra>"
     ))
     fig.update_layout(
         paper_bgcolor=BG, plot_bgcolor=BG,
         margin=dict(t=10, b=10, l=10, r=10), height=240,
-        xaxis=dict(
-            title=dict(text="Confidence %", font=dict(color="#444444", size=11)),
-            tickfont=dict(color="#444444"), gridcolor=GRID
-        ),
-        yaxis=dict(
-            title=dict(text="Count", font=dict(color="#444444", size=11)),
-            tickfont=dict(color="#444444"), gridcolor=GRID
-        )
+        xaxis=dict(title=dict(text="Confidence %", font=dict(color="#aaa", size=11)),
+                   tickfont=dict(color="#aaa"), gridcolor=GRID),
+        yaxis=dict(title=dict(text="Count", font=dict(color="#aaa", size=11)),
+                   tickfont=dict(color="#aaa"), gridcolor=GRID)
     )
     return fig
 
@@ -463,17 +567,17 @@ def wc_fig(results, sentiment):
     texts = " ".join(r["text"] for r in results if r["label"] == sentiment)
     if not texts.strip():
         return None
-    color_map = {"Positive": "YlGn", "Negative": "Reds", "Neutral": "Greys"}
+    color_map = {"Positive": "Greens", "Negative": "Reds", "Neutral": "Greys"}
     wc = WordCloud(
         width=700, height=280,
-        background_color="#0d0d0d",
+        background_color="#ffffff",
         colormap=color_map[sentiment],
         max_words=60, collocations=False,
         min_font_size=10
     ).generate(texts)
     fig, ax = plt.subplots(figsize=(7, 2.8))
-    fig.patch.set_facecolor("#0d0d0d")
-    ax.set_facecolor("#0d0d0d")
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
     ax.imshow(wc, interpolation="bilinear")
     ax.axis("off")
     plt.tight_layout(pad=0)
@@ -485,26 +589,89 @@ st.markdown("""
     <div class="nav-logo">Urdu Sentiment</div>
     <div class="nav-tag">
         <span class="nav-dot"></span>
-        DistilBERT &nbsp;·&nbsp; 74% accuracy &nbsp;·&nbsp; 24,989 samples
+        DistilBERT &nbsp;·&nbsp; Roman Urdu NLP
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ── HERO ─────────────────────────────────────────────────────────
 st.markdown("""
-<div class="hero">
-    <div class="hero-label">Natural Language Processing</div>
+<div class="hero-wrap">
+    <div class="hero-label">Natural Language Processing · Pakistan</div>
     <div class="hero-title">
-        Analyze what<br>Pakistanis say<br>about <span>any brand.</span>
+        Analyze what Pakistanis<br>say about <span>any brand.</span>
     </div>
     <div class="hero-desc">
         Real-time Roman Urdu sentiment analysis from YouTube comments.
-        Enter any Pakistani brand or topic to see public opinion.
+        Fine-tuned DistilBERT on 24,989 samples across 3 sentiment classes.
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-# ── SEARCH ───────────────────────────────────────────────────────
+# ── STATS BAR ────────────────────────────────────────────────────
+st.markdown("""
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-num">24,989</div>
+        <div class="stat-label">Training Samples</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">74%</div>
+        <div class="stat-label">Model Accuracy</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Sentiment Classes</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">DistilBERT</div>
+        <div class="stat-label">Base Model</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# ── MARQUEE (brand logos) ────────────────────────────────────────
+import base64
+
+LOGO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "logos")
+logo_files = ["daraz", "jazz", "pti", "pmln", "foodpanda", "telenor",
+              "bykea", "easypaisa", "hbl", "zong", "ufone", "netflix"]
+
+def load_logo_b64(name):
+    path = os.path.join(LOGO_DIR, f"{name}.png")
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            return base64.b64encode(f.read()).decode()
+    return None
+
+logo_data = {name: load_logo_b64(name) for name in logo_files}
+logo_data = {k: v for k, v in logo_data.items() if v is not None}
+
+if logo_data:
+    marquee_names = list(logo_data.keys()) * 2  # duplicate for seamless loop
+    items_html = "".join(
+        f'<span class="marquee-item"><img src="data:image/png;base64,{logo_data[n]}" alt="{n}"></span>'
+        for n in marquee_names
+    )
+    st.markdown(f"""
+    <div class="marquee-wrap">
+        <div class="marquee-track">{items_html}</div>
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    # fallback to text tags if logos not found
+    brands_marquee = ["Daraz", "Jazz", "PTI", "PMLN", "Foodpanda", "Telenor",
+                      "Bykea", "Easypaisa", "HBL", "Zong", "Ufone", "Netflix"] * 2
+    items_html = "".join(f'<span class="marquee-item" style="border-radius:100px;padding:0.5rem 1.2rem;height:auto;font-family:Space Mono,monospace;font-size:0.75rem;color:#888;">{b}</span>' for b in brands_marquee)
+    st.markdown(f"""
+    <div class="marquee-wrap">
+        <div class="marquee-track">{items_html}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ── MAIN CONTENT ─────────────────────────────────────────────────
+st.markdown('<div class="main-content">', unsafe_allow_html=True)
+
 st.markdown('<div class="search-label">Enter brand or topic</div>', unsafe_allow_html=True)
 with st.form("search", clear_on_submit=True):
     c1, c2 = st.columns([5, 1])
@@ -513,7 +680,6 @@ with st.form("search", clear_on_submit=True):
     with c2:
         go_btn = st.form_submit_button("Analyze")
 
-# ── BRAND TAG BUTTONS (clickable) ────────────────────────────────
 brands = ["Daraz", "Jazz", "PTI", "PMLN", "Foodpanda", "Telenor", "Bykea", "Easypaisa"]
 brand_cols = st.columns(len(brands), gap="small")
 clicked_brand = None
@@ -522,7 +688,6 @@ for i, b in enumerate(brands):
         if st.button(b, key=f"brand_{b}"):
             clicked_brand = b
 
-# resolve input: form submit or brand button click
 active_query = None
 if go_btn and query.strip():
     active_query = query.strip()
@@ -546,7 +711,6 @@ if active_query:
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 
-# ── RESULTS ──────────────────────────────────────────────────────
 if st.session_state.current_summary:
     summary = st.session_state.current_summary
     keyword = st.session_state.current_keyword
@@ -586,23 +750,19 @@ if st.session_state.current_summary:
     with col_charts:
         st.markdown('<div class="s-header">Visualization</div>', unsafe_allow_html=True)
         tab1, tab2, tab3, tab4 = st.tabs(["Distribution", "Breakdown", "Confidence", "Word Cloud"])
-
         with tab1:
             st.plotly_chart(pie_chart(summary), use_container_width=True)
-
         with tab2:
             st.plotly_chart(bar_chart(summary), use_container_width=True)
-
         with tab3:
             st.plotly_chart(conf_chart(results), use_container_width=True)
             avg = sum(r["confidence"] for r in results) / len(results)
             st.markdown(
                 f'<div style="font-family:Space Mono,monospace;font-size:0.65rem;'
-                f'color:#444444;text-align:center;letter-spacing:1px;text-transform:uppercase">'
+                f'color:#aaa;text-align:center;letter-spacing:1px;text-transform:uppercase">'
                 f'Average confidence: {avg:.1f}%</div>',
                 unsafe_allow_html=True
             )
-
         with tab4:
             wc_sent = st.radio("", ["Positive", "Negative", "Neutral"], horizontal=True)
             fig = wc_fig(results, wc_sent)
@@ -610,14 +770,13 @@ if st.session_state.current_summary:
                 st.pyplot(fig, use_container_width=True)
                 plt.close()
             else:
-                st.markdown(f'<div style="color:#333333;font-size:0.85rem">No {wc_sent} comments.</div>', unsafe_allow_html=True)
+                st.markdown(f'<div style="color:#bbb;font-size:0.85rem">No {wc_sent} comments.</div>', unsafe_allow_html=True)
 
     with col_comments:
         st.markdown('<div class="s-header">Top Comments</div>', unsafe_allow_html=True)
         filt = st.selectbox("", ["Negative", "Positive", "Neutral"], label_visibility="collapsed")
         css  = {"Positive": "pos", "Negative": "neg", "Neutral": "neu"}[filt]
         top  = summary["top"][filt]
-
         if top:
             for c in top:
                 st.markdown(f"""
@@ -627,7 +786,7 @@ if st.session_state.current_summary:
                 </div>
                 """, unsafe_allow_html=True)
         else:
-            st.markdown(f'<div style="color:#333333;font-size:0.85rem">No {filt.lower()} comments found.</div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="color:#bbb;font-size:0.85rem">No {filt.lower()} comments found.</div>', unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown('<div class="s-header">Export</div>', unsafe_allow_html=True)
@@ -679,3 +838,14 @@ else:
         <div class="empty-title">No analysis yet — enter a brand above</div>
     </div>
     """, unsafe_allow_html=True)
+
+st.markdown("""
+<div class="disclaimer">
+    Disclaimer: All product names, logos, and brands are property of their respective owners.
+    All company, product, and service names used in this application are for identification
+    and non-commercial educational purposes only. Use of these names, logos, and brands
+    does not imply endorsement.
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
