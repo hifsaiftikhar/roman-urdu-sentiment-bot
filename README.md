@@ -220,3 +220,10 @@ Preprocessing steps applied:
 
 **Hifsa Iftikhar**  
 GitHub: [@hifsaiftikhar](https://github.com/hifsaiftikhar)
+
+---
+
+## ⚖️ Legal Disclaimer
+
+All product names, logos, and brands displayed in this project are the property of their respective trademark owners. Their use within this open-source application is strictly intended for localized educational, informational, and non-commercial machine learning demonstration purposes under nominative fair use guidelines. The use of these names and logos does not imply any affiliation, sponsorship, or endorsement by the respective companies or political organizations.
+
