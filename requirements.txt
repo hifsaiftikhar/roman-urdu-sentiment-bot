@@ -3,3 +3,4 @@ plotly
 transformers
 torch
 wordcloud
+scrapetube
