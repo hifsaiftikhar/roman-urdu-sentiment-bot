@@ -1,7 +1,6 @@
 # Roman Urdu Sentiment Bot
 
-[![Streamlit App](https://shields.io)](https://streamlit.app)
-
+[![Streamlit](https://shields.io)](https://streamlit.app)
 [![Live Demo](https://img.shields.io/badge/🤗_HuggingFace-Live_Demo-yellow)](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
 [![Model v2](https://img.shields.io/badge/Model-v2_74%25_accuracy-green)](https://huggingface.co/Hifsa65/roman-urdu-sentiment-v2)
 [![GitHub](https://img.shields.io/badge/GitHub-hifsaiftikhar-black)](https://github.com/hifsaiftikhar)
