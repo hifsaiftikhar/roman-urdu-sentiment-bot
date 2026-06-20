@@ -4,3 +4,4 @@ transformers
 torch
 wordcloud
 scrapetube
+youtube-comment-downloader
