@@ -1,0 +1,11 @@
+streamlit
+plotly
+wordcloud
+matplotlib
+pandas
+numpy
+torch
+transformers
+scikit-learn
+scrapetube
+youtube-comment-downloader
