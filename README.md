@@ -1,5 +1,6 @@
 # Roman Urdu Sentiment Bot
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.app)
 [![Live Demo](https://img.shields.io/badge/🤗_HuggingFace-Live_Demo-yellow)](https://huggingface.co/spaces/Hifsa65/roman-urdu-sentiment-bot)
 [![Model v2](https://img.shields.io/badge/Model-v2_74%25_accuracy-green)](https://huggingface.co/Hifsa65/roman-urdu-sentiment-v2)
 [![GitHub](https://img.shields.io/badge/GitHub-hifsaiftikhar-black)](https://github.com/hifsaiftikhar)
@@ -219,3 +220,10 @@ Preprocessing steps applied:
 
 **Hifsa Iftikhar**  
 GitHub: [@hifsaiftikhar](https://github.com/hifsaiftikhar)
+
+---
+
+## ⚖️ Legal Disclaimer
+
+All product names, logos, and brands displayed in this project are the property of their respective trademark owners. Their use within this open-source application is strictly intended for localized educational, informational, and non-commercial machine learning demonstration purposes under nominative fair use guidelines. The use of these names and logos does not imply any affiliation, sponsorship, or endorsement by the respective companies or political organizations.
+
